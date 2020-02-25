@@ -1,6 +1,6 @@
 camera:
 - eye:
-0 0 100
+0.0 0 -100
 - look_at:
 0 0 0
 - fov:
@@ -8,22 +8,24 @@ camera:
 
 light:
 - origin:
-0 0 100
+0 0 -100
 - intensity:
-1
+-1
 
 object:
- - name:
- sphere
- - center:
- 0 0 0
- - radius:
- 1000
- - lights_coeffs:
-    1 1 20
- - color:
-     16711680
- - rot:
-     off 30.0 60.0 70.0
- - trans:
-     off 42 42 42
+- name:
+cone
+- center:
+0 0 0
+- vec_dir:
+0 1 0
+- alpha:
+30
+- lights_coeffs:
+1 1 30
+- color:
+24523
+- rot:
+off 30.0 60.0 70.0
+- trans:
+off 42 42 42

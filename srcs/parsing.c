@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 19:40:41 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:26:39 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 21:29:02 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int		get_data(char *filename, t_mlx *mlx)
 	if (!check(p))
 		return (0);
 	fill(p, mlx);
-	free_parser(&p);
+	free_parser(p);
 	return (1);
 }

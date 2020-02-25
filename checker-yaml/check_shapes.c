@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 19:05:27 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/24 14:49:09 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 21:58:09 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,11 @@ int		plane_keys(t_block_list *plane, int size)
 	while (plane && size)
 	{
 		key = find_object_key(plane->key);
-		if (size == 6 && (key != NAME))
+		if (size == 7 && (key != NAME))
 			return (0);
-		if (size == 5 && (key != CENTER))
+		if (size == 6 && (key != CENTER))
+			return (0);
+		if (size == 5 && (key != VEC_DIR))
 			return (0);
 		if (size == 4 && (key != LIGHT_COEFFS))
 			return (0);

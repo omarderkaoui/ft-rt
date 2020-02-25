@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:00:45 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/23 19:13:51 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 23:06:57 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int		sphere_input(t_block_list *sphere, int size)
 	while (sphere && size)
 	{
 		key = find_object_key(sphere->key);
-		if (key == NAME && !check_univalue(sphere->value))
+		if (key == NAME && !check_univalue(sphere->value, 0))
 			return (0);
 		if (key == CENTER && !check_vec_input(sphere->value))
 			return (0);
-		if (key == RADIUS && !check_univalue(sphere->value))
+		if (key == RADIUS && !check_univalue(sphere->value, 0))
 			return (0);
-		if (key == LIGHT_COEFFS && !check_vec_input(sphere->value))
+		if (key == LIGHT_COEFFS && !check_light_input(sphere->value))
 			return (0);
-		if (key == COLOR && !check_univalue(sphere->value))
+		if (key == COLOR && !check_univalue(sphere->value, 1))
 			return (0);
 		if (key == ROT && !check_transform_input(sphere->value))
 			return (0);
@@ -46,17 +46,17 @@ int		cylinder_input(t_block_list *cylinder, int size)
 	while (cylinder && size)
 	{
 		key = find_object_key(cylinder->key);
-		if (key == NAME && !check_univalue(cylinder->value))
+		if (key == NAME && !check_univalue(cylinder->value, 0))
 			return (0);
 		if (key == CENTER && !check_vec_input(cylinder->value))
 			return (0);
 		if (key == VEC_DIR && !check_vec_input(cylinder->value))
 			return (0);
-		if (key == RADIUS && !check_univalue(cylinder->value))
+		if (key == RADIUS && !check_univalue(cylinder->value, 0))
 			return (0);
-		if (key == LIGHT_COEFFS && !check_vec_input(cylinder->value))
+		if (key == LIGHT_COEFFS && !check_light_input(cylinder->value))
 			return (0);
-		if (key == COLOR && !check_univalue(cylinder->value))
+		if (key == COLOR && !check_univalue(cylinder->value, 1))
 			return (0);
 		if (key == ROT && !check_transform_input(cylinder->value))
 			return (0);
@@ -75,13 +75,13 @@ int		plane_input(t_block_list *plane, int size)
 	while (plane && size)
 	{
 		key = find_object_key(plane->key);
-		if (key == NAME && !check_univalue(plane->value))
+		if (key == NAME && !check_univalue(plane->value, 0))
 			return (0);
 		if (key == CENTER && !check_vec_input(plane->value))
 			return (0);
-		if (key == LIGHT_COEFFS && !check_vec_input(plane->value))
+		if (key == LIGHT_COEFFS && !check_light_input(plane->value))
 			return (0);
-		if (key == COLOR && !check_univalue(plane->value))
+		if (key == COLOR && !check_univalue(plane->value, 1))
 			return (0);
 		if (key == ROT && !check_transform_input(plane->value))
 			return (0);
@@ -100,17 +100,17 @@ int		cone_input(t_block_list *cone, int size)
 	while (cone && size)
 	{
 		key = find_object_key(cone->key);
-		if (key == NAME && !check_univalue(cone->value))
+		if (key == NAME && !check_univalue(cone->value, 0))
 			return (0);
 		if (key == CENTER && !check_vec_input(cone->value))
 			return (0);
 		if (key == VEC_DIR && !check_vec_input(cone->value))
 			return (0);
-		if (key == ALPHA && !check_univalue(cone->value))
+		if (key == ALPHA && !check_univalue(cone->value, 0))
 			return (0);
-		if (key == LIGHT_COEFFS && !check_vec_input(cone->value))
+		if (key == LIGHT_COEFFS && !check_light_input(cone->value))
 			return (0);
-		if (key == COLOR && !check_univalue(cone->value))
+		if (key == COLOR && !check_univalue(cone->value, 1))
 			return (0);
 		if (key == ROT && !check_transform_input(cone->value))
 			return (0);

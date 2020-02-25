@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:28:12 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 23:22:51 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define FAR			1000000
 # define MIN_D			1e-2
 # define GREY			0x444444
+# define WHITE			16777216
 # define PERCENTAGE		0.19
 
 # define CAMERA			6
@@ -208,24 +209,6 @@ t_vector			vec_cross(t_vector v1, t_vector v2);
 t_vector			vec_norm(t_vector v);
 
 /*
-** For debugging purposes (To delete later)
-*/
-
-void				print_obj_props(t_block *block);
-void				print_light_props(t_light *light);
-void				read_object_values(int fd, t_block *block);
-void				read_light_values(int fd, t_light *light);
-void				print_cam_props(t_camera *camera);
-void				print_cam_props(t_camera *camera);
-void				print_light_props(t_light *light);
-void				print_list_objects(t_list *list);
-void				print_list_objects(t_list *list);
-void				print_list_lights(t_list *list);
-void				debug_camera(t_list *camera);
-void				debug_rot(t_rot *rot);
-void				debug_trans(t_trans *trans);
-
-/*
 ** Init env blocks
 */
 
@@ -265,7 +248,6 @@ int					shadows(t_ray *ray, t_list *objects, t_list *lights,
 ** Object's intersections
 */
 
-t_object			*find_inter(t_camera camera, t_list *objects, int i, int j);
 double				sphere(t_ray *ray, t_object *obj);
 double				plane(t_ray *ray, t_object *obj);
 double				cone(t_ray *ray, t_object *obj);
@@ -311,15 +293,19 @@ int					check_empty_parser(t_parser	*p);
 int					len(t_block_list *list);
 int					check_vec_input(char *vec);
 int					check_transform_input(char *vec);
-int					check_univalue(char *vec);
+int					check_univalue(char *vec, int color);
 int					sphere_input(t_block_list *sphere, int size);
 int					cylinder_input(t_block_list *cylinder, int size);
 int					plane_input(t_block_list *plane, int size);
 int					cone_input(t_block_list *cone, int size);
+void				ft_memdel_2d(void **ap);
+int					array_len(char **array);
+int					check_light_input(char *vec);
 
 /*
 ** Transformation of objects
 */
+
 void				rotate(t_list **objects);
 t_list				*translate(t_list *objects);
 t_vector			rotate_x_axis(t_vector vec_dir, float angle);

@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 21:05:55 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/23 20:45:30 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 23:19:58 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ typedef struct		s_parser
 }					t_parser;
 
 t_parser			*parse(char *filename);
-void				free_parser(t_parser **p);
+void				free_parser(t_parser *p);
+void				free_blocks(t_block *block);
 void				pretty_parser(t_parser *p);
 t_parser			*new_parser(void);
 

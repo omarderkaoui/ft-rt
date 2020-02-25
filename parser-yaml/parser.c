@@ -6,16 +6,11 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 21:33:14 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:29:08 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 23:20:42 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-
-void		free_parser(t_parser **p)
-{
-	ft_memdel((void **)p);
-}
 
 int			fill_block_values(t_block *block, char *line, int key, int value)
 {

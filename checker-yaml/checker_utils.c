@@ -6,18 +6,18 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 23:19:21 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/23 16:30:30 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 22:34:50 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
 
-int		array_length(char **array)
+int		array_len(char **array)
 {
 	int i;
 
 	i = 0;
-	while (array[i])
+	while (array[i] != '\0')
 		i++;
 	return (i);
 }

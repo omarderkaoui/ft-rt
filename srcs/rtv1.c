@@ -6,16 +6,40 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:20:30 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:17:34 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 23:21:35 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
 
+void		free_objects(void)
+{
+	t_list	*tmp;
+
+	while (g_env.scene.objects)
+	{
+		tmp = g_env.scene.objects->next;
+		ft_memdel((void **)(&g_env.scene.objects));
+		g_env.scene.objects = tmp;
+	}
+}
+
+void		free_lights(void)
+{
+	t_list	*tmp;
+
+	while (g_env.scene.lights)
+	{
+		tmp = g_env.scene.lights->next;
+		ft_memdel((void **)(&g_env.scene.lights));
+		g_env.scene.lights = tmp;
+	}
+}
+
 void		free_data(void)
 {
-	ft_memdel((void **)g_env.scene.objects);
-	ft_memdel((void **)g_env.scene.lights);
+	free_objects();
+	free_lights();
 }
 
 int			main(int ac, char *av[])

@@ -6,7 +6,7 @@
 #    By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/04 21:43:33 by ikrkharb          #+#    #+#              #
-#    Updated: 2020/02/23 19:19:42 by ikrkharb         ###   ########.fr        #
+#    Updated: 2020/02/25 23:19:41 by ikrkharb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = 	parser.c\
 		utils.c\
 		ft_lst_ops.c\
 		new_list.c\
+		free.c\
 
 OBJ = $(SRC:.c=.o)
 
