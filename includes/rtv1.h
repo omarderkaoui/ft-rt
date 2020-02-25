@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 15:18:31 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:28:12 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ typedef struct		s_vector
 
 typedef struct s_vector	t_point;
 
-typedef struct 		s_binom
+typedef struct		s_index
 {
-	int i;
-	int j;
-}					t_binom;
+	int				i;
+	int				j;
+}					t_index;
 
 typedef struct		s_camera
 {
@@ -154,8 +154,8 @@ typedef struct		s_ray
 typedef	struct		s_scene
 {
 	t_camera		camera;
-	t_light			light;
-	t_object		obj_type;
+	t_list			*lights;
+	t_list			*objects;
 }					t_scene;
 
 typedef struct		s_env
@@ -171,7 +171,7 @@ typedef struct		s_var1
 	t_object		*object;
 }					t_var1;
 
-typedef	struct		s_var2
+typedef	struct		s_shadow_ray
 {
 	t_list			*tmp;
 	t_point			p;
@@ -179,8 +179,7 @@ typedef	struct		s_var2
 	t_vector		n;
 	int				k;
 	int				nb_light;
-}					t_var2;
-
+}					t_shadow_ray;
 
 t_env g_env;
 
@@ -204,10 +203,9 @@ float				vec_dot(t_vector v1, t_vector v2);
 float				vec_dot_x_z(t_vector v1, t_vector v2);
 t_vector			vec_sub(t_vector v1, t_vector v2);
 t_vector			vec_sum(t_vector v1, t_vector v2);
-t_vector			vec_scale(t_vector v1, t_vector v2);
-t_vector			vec_kscale(float k, t_vector v2);
+t_vector			vec_kscale(float k, t_vector v);
 t_vector			vec_cross(t_vector v1, t_vector v2);
-t_vector			vec_normalize(t_vector v);
+t_vector			vec_norm(t_vector v);
 
 /*
 ** For debugging purposes (To delete later)
@@ -245,6 +243,9 @@ int					get_data(char *filename, t_mlx *mlx);
 t_list				*fill_object_data(t_block *block);
 t_camera			fill_camera_data(t_block *block);
 t_list				*fill_light_data(t_block *block);
+t_scene				fill_scene(t_block *block);
+void				fill_object_values(t_block_list *list, t_object *obj,
+										int key);
 int					fill(t_parser *p, t_mlx *mlx);
 
 /*
@@ -257,7 +258,8 @@ void				ft_draw_objects(t_mlx *mlx, t_camera camera,
 									t_list *objects);
 void				create_actual_objs(t_mlx *mlx, t_camera camera,
 									t_list *lights, t_list *objects);
-float				shadows(t_ray *ray, t_list *objects, t_list *lights, t_object *obj);
+int					shadows(t_ray *ray, t_list *objects, t_list *lights,
+							t_object *obj);
 
 /*
 ** Object's intersections
@@ -319,13 +321,13 @@ int					cone_input(t_block_list *cone, int size);
 ** Transformation of objects
 */
 void				rotate(t_list **objects);
-void				translate(t_list *objects);
+t_list				*translate(t_list *objects);
 t_vector			rotate_x_axis(t_vector vec_dir, float angle);
 t_vector			rotate_y_axis(t_vector vec_dir, float angle);
 t_vector			rotate_z_axis(t_vector vec_dir, float angle);
 
-t_vector		sphere_normal(t_object *obj, t_ray *ray);
-t_vector		cone_normal(t_object *obj, t_ray *ray);
-t_vector		cylinder_normal(t_object *obj, t_ray *ray);
-t_vector		get_normal(t_object *obj, t_ray *ray);
+t_vector			sphere_normal(t_object *obj, t_ray *ray);
+t_vector			cone_normal(t_object *obj, t_ray *ray);
+t_vector			cylinder_normal(t_object *obj, t_ray *ray);
+t_vector			get_normal(t_object *obj, t_ray *ray);
 #endif

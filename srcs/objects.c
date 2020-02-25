@@ -3,71 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   objects.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 20:28:39 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 14:32:11 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:04:56 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
 
-void		init1(t_list *tmp, t_ray *ray)
+void		fill_inter(t_list *tmp, t_ray *ray)
 {
-	if (!(ft_strcmp(((t_object*)tmp->content)->name, "sphere")))
+	t_object	*object;
+	int			name;
+
+	object = tmp->content;
+	name = find_object_name(object->name);
+	if (name == SPHERE)
 		((t_object*)tmp->content)->t = sphere(ray, (t_object*)tmp->content);
-	else if (!(ft_strcmp(((t_object*)tmp->content)->name, "plane")))
+	else if (name == PLANE)
 		((t_object*)tmp->content)->t = plane(ray, (t_object*)tmp->content);
-	else if (!(ft_strcmp(((t_object*)tmp->content)->name, "cylinder")))
+	else if (name == CYLINDER)
 		((t_object*)tmp->content)->t = cylinder(ray, (t_object*)tmp->content);
-	else if (!(ft_strcmp(((t_object*)tmp->content)->name, "cone")))
+	else if (name == CONE)
 		((t_object*)tmp->content)->t = cone(ray, (t_object*)tmp->content);
 	else
 		((t_object *)tmp->content)->t = FAR;
 }
 
-t_object	*ramplir(t_camera c, t_list *objects, t_binom b, t_ray *ray)
+t_object	*find_closest_t(t_camera c, t_list *objs, t_index in, t_ray *ray)
 {
-	t_object		*obj1;
+	t_object		*obj;
 	t_list			*tmp;
 
 	c = ft_create_cam(c.eye, c.look_at, c.fov);
-	*ray = generate_ray(&c, b.i, b.j);
-	tmp = objects;
+	*ray = generate_ray(&c, in.i, in.j);
+	tmp = objs;
 	((t_object *)tmp->content)->t = FAR;
-	obj1 = (t_object *)tmp->content;
+	obj = (t_object *)tmp->content;
 	while (tmp)
 	{
-		init1(tmp, ray);
-		if (((t_object*)tmp->content)->t < obj1->t)
-			obj1 = (t_object *)tmp->content;
+		fill_inter(tmp, ray);
+		if (((t_object*)tmp->content)->t < obj->t)
+			obj = (t_object *)tmp->content;
 		tmp = tmp->next;
 	}
-	if (obj1->t == FAR)
+	if (obj->t == FAR)
 		return (NULL);
-	return (obj1);
+	return (obj);
 }
 
 void		draw(t_mlx *mlx, t_camera c, t_list *objs, t_list *l)
 {
-	t_binom		b;
+	t_index		index;
 	t_object	*obj;
 	t_ray		ray;
 
-	b.i = -1;
-	while (++b.i < WIDTH)
+	index.i = -1;
+	while (++index.i < WIDTH)
 	{
-		b.j = -1;
-		while (++b.j < HEIGHT)
+		index.j = -1;
+		while (++index.j < HEIGHT)
 		{
-			obj = ramplir(c, objs, b, &ray);
+			obj = find_closest_t(c, objs, index, &ray);
 			if (obj == NULL)
 			{
-				ft_mlx_pixel_put(mlx, b.i, b.j, GREY);
+				ft_mlx_pixel_put(mlx, index.i, index.j, GREY);
 				continue ;
 			}
 			obj->k = shadows(&ray, objs, l, obj);
-			ft_mlx_pixel_put(mlx, b.i, b.j, phong_model(obj, &ray, l, obj->k));
+			ft_mlx_pixel_put(mlx, index.i, index.j,
+							phong_model(obj, &ray, l, obj->k));
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);

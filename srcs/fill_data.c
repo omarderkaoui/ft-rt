@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:29:55 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 15:26:22 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:25:41 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,29 @@ t_list				*fill_light_data(t_block *block)
 	return (ft_lstnew(&light, sizeof(t_light)));
 }
 
+void				fill_object_values(t_block_list *list, t_object *obj,
+										int key)
+{
+	if (key == NAME)
+		obj->name = list->value;
+	if (key == COLOR)
+		obj->color = ft_atoi(list->value);
+	if (key == CENTER)
+		obj->center = char_to_vec(list->value);
+	if (key == ALPHA)
+		obj->alpha = DEG_TO_RAD(ft_atof(list->value));
+	if (key == VEC_DIR)
+		obj->vec_dir = vec_norm(char_to_vec(list->value));
+	if (key == RADIUS)
+		obj->radius = ft_atof(list->value);
+	if (key == LIGHT_COEFFS)
+		obj->coeffs = char_to_coeffs(list->value);
+	if (key == ROT)
+		obj->rot = char_to_rot(list->value);
+	if (key == TRANS)
+		obj->trans = char_to_trans(list->value);
+}
+
 t_list				*fill_object_data(t_block *block)
 {
 	t_block_list	*list;
@@ -66,32 +89,15 @@ t_list				*fill_object_data(t_block *block)
 	while (list)
 	{
 		key = find_object_key(list->key);
-		if (key == NAME)
-			obj.name = list->value;
-		if (key == COLOR)
-			obj.color = ft_atoi(list->value);
-		if (key == CENTER)
-			obj.center = char_to_vec(list->value);
-		if (key == ALPHA)
-			obj.alpha = DEG_TO_RAD(ft_atof(list->value));
-		if (key == VEC_DIR)
-			obj.vec_dir = vec_normalize(char_to_vec(list->value));
-		if (key == RADIUS)
-			obj.radius = ft_atof(list->value);
-		if (key == LIGHT_COEFFS)
-			obj.coeffs = char_to_coeffs(list->value);
-		if (key == ROT)
-			obj.rot = char_to_rot(list->value);
-		if (key == TRANS)
-			obj.trans = char_to_trans(list->value);
+		fill_object_values(list, &obj, key);
 		list = list->next;
 	}
 	return (ft_lstnew(&obj, sizeof(t_object)));
 }
 
-int					fill(t_parser *p, t_mlx *mlx)
+t_scene				fill_scene(t_block *block)
 {
-	t_block		*block;
+	t_scene		scene;
 	t_camera	camera;
 	t_list		*lights;
 	t_list		*objects;
@@ -99,7 +105,6 @@ int					fill(t_parser *p, t_mlx *mlx)
 
 	objects = NULL;
 	lights = NULL;
-	block = p->blocks;
 	while (block)
 	{
 		key = find_block(block);
@@ -111,8 +116,8 @@ int					fill(t_parser *p, t_mlx *mlx)
 			ft_lstadd(&objects, fill_object_data(block));
 		block = block->next;
 	}
-	/*translate(objects);*/
-	rotate(&objects);
-	create_actual_objs(mlx, camera, lights, objects);
-	return (1);
+	scene.camera = camera;
+	scene.lights = lights;
+	scene.objects = objects;
+	return (scene);
 }

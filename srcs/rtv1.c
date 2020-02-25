@@ -6,13 +6,19 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:20:30 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/22 00:56:05 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:17:34 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
 
-int	main(int ac, char *av[])
+void		free_data(void)
+{
+	ft_memdel((void **)g_env.scene.objects);
+	ft_memdel((void **)g_env.scene.lights);
+}
+
+int			main(int ac, char *av[])
 {
 	t_mlx mlx;
 
@@ -23,15 +29,20 @@ int	main(int ac, char *av[])
 		if (!(get_data(av[1], &mlx)))
 		{
 			write(1, "\033[1;31mError\n\033[0m", 17);
-			return (0);
+			return (1);
 		}
 		else
-			mlx_hook(mlx.win_ptr, 4, 0, mouse_press, &mlx);
+		{
 			mlx_hook(mlx.win_ptr, 2, 0, key_press, &mlx);
 			mlx_hook(mlx.win_ptr, 17, 0, close_win, &mlx);
 			mlx_loop(mlx.mlx_ptr);
+		}
 	}
 	else
+	{
 		write(1, "\033[0;31mEnter a valid filename\n", 30);
+		return (1);
+	}
+	free_data();
 	return (0);
 }

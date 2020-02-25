@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 21:33:14 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 14:48:07 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:29:08 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,35 +98,4 @@ t_parser	*parse(char *filename)
 	close(fd);
 	reverse_parser(p);
 	return (p);
-}
-
-/*
-** For debugging purposes (To delete later)
-*/
-
-void		pretty_parser(t_parser *p)
-{
-	t_block			*block;
-	t_block_list	*list;
-	int				i;
-	int				j;
-
-	//printf("Objects: %d\n", p->n);
-	i = 0;
-	block = p->blocks;
-	while (i < p->n && block)
-	{
-		list = block->list;
-		//printf("Object: %s\n", block->name);
-		j = 0;
-		while (j < block->n && list)
-		{
-			/*printf("\tList:\n\t\tKey:\t%s\n\t\tValue:\t%s\n",
-				list->key, list->value);*/
-			j++;
-			list = list->next;
-		}
-		block = block->next;
-		i++;
-	}
 }

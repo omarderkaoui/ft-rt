@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_gen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 18:11:08 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 14:53:56 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 17:45:31 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ t_camera		ft_create_cam(t_vector eye, t_vector look_at, float fov)
 	camera.fov = DEG_TO_RAD(fov);
 	camera.eye = eye;
 	camera.look_at = look_at;
-	camera.view_dir = vec_normalize(vec_sub(look_at, eye));
-	camera.u = vec_normalize(vec_cross(camera.view_dir, up));
+	camera.view_dir = vec_norm(vec_sub(look_at, eye));
+	camera.u = vec_norm(vec_cross(camera.view_dir, up));
 	camera.u = vec_kscale(-1, camera.u);
-	camera.v = vec_normalize(vec_cross(camera.u, camera.view_dir));
+	camera.v = vec_norm(vec_cross(camera.u, camera.view_dir));
 	camera.v = vec_kscale(-1, camera.v);
 	camera.h_height = tan(camera.fov / 2.0) * 2.0 * dist;
 	camera.aspect_ratio = (float)WIDTH / (float)HEIGHT;
@@ -67,10 +67,8 @@ t_ray			generate_ray(t_camera *camera, int i, int j)
 		y = (camera->h_height / 2) - j * deltay;
 	if (j > HEIGHT / 2)
 		y = -(j - HEIGHT / 2) * deltay;
-	ray.dir = vec_sum(vec_kscale(x, camera->u), vec_kscale(y, camera->v));
-	ray.dir = vec_sum(ray.dir, camera->view_dir);
-	ray.dir = vec_sum(ray.dir, camera->look_at);
-	ray.dir = vec_sum(ray.dir, vec_kscale(-1, ray.origin));
-	ray.dir = vec_normalize(ray.dir);
+	ray.dir = vec_norm(vec_sum(vec_sum(vec_sum(vec_sum(
+		vec_kscale(x, camera->u), vec_kscale(y, camera->v)),
+		camera->view_dir), camera->look_at), vec_kscale(-1, ray.origin)));
 	return (ray);
 }

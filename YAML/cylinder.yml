@@ -1,7 +1,7 @@
 camera:
   - eye:
   0.0 0 -10
-  - look_at: 
+  - look_at:
   0 0 0
   - fov:
   60.0
@@ -21,15 +21,27 @@ light:
   0 1 0
   - radius:
   1
-  - ks:
-  1
-  - kd:
-  1
-  - n:
-  50
+  - lights_coeffs:
+   1 1 60
   - color:
   255
-   - rot:
-    off 30.0 60.0 70.0
+  - rot:
+	off 0 0 90
   - trans:
-    off -100 -100 42
+	off 3 0 0
+
+object:
+	- name:
+	sphere
+	- center:
+	3 0 0
+	- radius:
+	1
+	- lights_coeffs:
+		1 1 60
+	- color:
+	255455
+	- rot:
+		off 0 0 90
+	- trans:
+		off 3 0 0

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vectors_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 20:20:14 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 14:55:29 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 17:33:55 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ t_vector	vec_cross(t_vector v1, t_vector v2)
 	return (res);
 }
 
-t_vector	vec_normalize(t_vector v)
+t_vector	vec_norm(t_vector v)
 {
 	float		norme;
-	t_vector	r;
+	t_vector	vector;
 
 	norme = sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
 	if (!norme)
 		return ((t_vector){0.0, 0.0, 0.0});
-	r.x = v.x / norme;
-	r.y = v.y / norme;
-	r.z = v.z / norme;
-	return (r);
+	vector.x = v.x / norme;
+	vector.y = v.y / norme;
+	vector.z = v.z / norme;
+	return (vector);
 }

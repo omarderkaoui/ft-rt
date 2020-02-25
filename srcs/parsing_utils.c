@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 17:56:40 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/23 15:54:14 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/25 20:26:21 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,30 @@ int		find_object_key(char *key)
 
 int		find_block(t_block *block)
 {
-	if (!strcmp(block->name, "camera"))
-		return (CAMERA);
-	if (!strcmp(block->name, "light"))
-		return (LIGHT);
-	if (!strcmp(block->name, "object"))
-		return (SHAPE);
+	if (block->name)
+	{
+		if (!strcmp(block->name, "camera"))
+			return (CAMERA);
+		if (!strcmp(block->name, "light"))
+			return (LIGHT);
+		if (!strcmp(block->name, "object"))
+			return (SHAPE);
+	}
 	return (-1);
 }
 
 int		find_object_name(char *name)
 {
-	if (!strcmp(name, "sphere"))
-		return (SPHERE);
-	if (!strcmp(name, "plane"))
-		return (PLANE);
-	if (!strcmp(name, "cylinder"))
-		return (CYLINDER);
-	if (!strcmp(name, "cone"))
-		return (CONE);
+	if (name)
+	{
+		if (!strcmp(name, "sphere"))
+			return (SPHERE);
+		if (!strcmp(name, "plane"))
+			return (PLANE);
+		if (!strcmp(name, "cylinder"))
+			return (CYLINDER);
+		if (!strcmp(name, "cone"))
+			return (CONE);
+	}
 	return (-1);
 }

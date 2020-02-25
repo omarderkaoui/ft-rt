@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 15:17:13 by oderkaou          #+#    #+#             */
-/*   Updated: 2020/02/25 15:25:22 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 19:26:55 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_vector		sphere_normal(t_object *obj, t_ray *ray)
 	t_point		i;
 
 	i = vec_sum(ray->origin, vec_kscale(obj->t, ray->dir));
-	n = vec_normalize(vec_sub(i, obj->center));
+	n = vec_norm(vec_sub(i, obj->center));
 	return (n);
 }
 
@@ -55,22 +55,24 @@ t_vector		cylinder_normal(t_object *obj, t_ray *ray)
 	t_point		i;
 
 	i = vec_sum(ray->origin, vec_kscale(obj->t, ray->dir));
-	n = vec_normalize(vec_sub(vec_sub(i, obj->center),
+	n = vec_norm(vec_sub(vec_sub(i, obj->center),
 	vec_kscale(vec_dot(obj->vec_dir, vec_sub(i, obj->center)), obj->vec_dir)));
 	return (n);
 }
 
 t_vector		get_normal(t_object *obj, t_ray *ray)
 {
-	t_vector n;
+	t_vector	n;
+	int			name;
 
-	if (!(ft_strcmp(obj->name, "sphere")))
+	name = find_object_name(obj->name);
+	if (name == SPHERE)
 		n = sphere_normal(obj, ray);
-	if (!(ft_strcmp(obj->name, "plane")))
+	if (name == PLANE)
 		n = obj->vec_dir;
-	if (!(ft_strcmp(obj->name, "cone")))
+	if (name == CONE)
 		n = cone_normal(obj, ray);
-	if (!(ft_strcmp(obj->name, "cylinder")))
+	if (name == CYLINDER)
 		n = cylinder_normal(obj, ray);
 	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 22:53:57 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/23 16:59:12 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/24 22:53:50 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ char		*pretty_name(char *str)
 	int	i;
 
 	i = 0;
-	while (!ft_isalnum(str[i]))
+	while (str[i] && !ft_isalnum(str[i]))
 	{
 		str[i] = ' ';
 		i++;
 	}
 	i = ft_strlen(str) - 1;
-	while (!ft_isalnum(str[i]))
+	while (str[i] && !ft_isalnum(str[i]))
 	{
 		str[i] = ' ';
 		i--;

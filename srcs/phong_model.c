@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong_model.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 20:59:11 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 15:21:36 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/25 19:29:28 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_vector		reflection_vector(t_vector nor, t_vector light)
 {
 	t_vector r;
 
-	r = vec_normalize(vec_sub(vec_kscale(2 * vec_dot(nor, light), nor), light));
+	r = vec_norm(vec_sub(vec_kscale(2 * vec_dot(nor, light), nor), light));
 	return (r);
 }
 
@@ -34,16 +34,18 @@ float			specular(t_object *obj, t_light *light, t_ray *ray)
 	t_vector	r;
 	t_vector	l;
 	t_point		i;
+	int			name;
 
 	i = vec_sum(ray->origin, vec_kscale(obj->t, ray->dir));
-	l = vec_normalize(vec_sub(light->origin, i));
-	if (!(ft_strcmp(obj->name, "sphere")))
+	l = vec_norm(vec_sub(light->origin, i));
+	name = find_object_name(obj->name);
+	if (name == SPHERE)
 		r = reflection_vector(sphere_normal(obj, ray), l);
-	if (!(ft_strcmp(obj->name, "plane")))
+	if (name == PLANE)
 		r = reflection_vector(obj->vec_dir, l);
-	if (!(ft_strcmp(obj->name, "cone")))
+	if (name == CONE)
 		r = reflection_vector(cone_normal(obj, ray), l);
-	if (!(ft_strcmp(obj->name, "cylinder")))
+	if (name == CYLINDER)
 		r = reflection_vector(cylinder_normal(obj, ray), l);
 	return (obj->coeffs.ks
 	* pow(f_max(vec_dot(r, vec_kscale(-1, ray->dir))), obj->coeffs.n));
@@ -54,16 +56,18 @@ float			diffuse(t_object *obj, t_light *light, t_ray *ray)
 	t_vector	normal;
 	t_point		p;
 	t_vector	light_dir;
+	int			name;
 
 	p = vec_sum(ray->origin, vec_kscale(obj->t, ray->dir));
-	light_dir = vec_normalize(vec_sub(light->origin, p));
-	if (!(ft_strcmp(obj->name, "sphere")))
+	light_dir = vec_norm(vec_sub(light->origin, p));
+	name = find_object_name(obj->name);
+	if (name == SPHERE)
 		normal = sphere_normal(obj, ray);
-	if (!(ft_strcmp(obj->name, "plane")))
+	if (name == PLANE)
 		normal = obj->vec_dir;
-	if (!(ft_strcmp(obj->name, "cone")))
+	if (name == CONE)
 		normal = cone_normal(obj, ray);
-	if (!(ft_strcmp(obj->name, "cylinder")))
+	if (name == CYLINDER)
 		normal = cylinder_normal(obj, ray);
 	return (vec_dot(normal, light_dir));
 }
