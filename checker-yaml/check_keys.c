@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 19:07:50 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 23:16:46 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 13:42:07 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ int		check_light_keys(t_block_list *light)
 		key = find_light_key(light->key);
 		if (i == 0 && key != ORIGIN)
 			return (0);
-		if ((i == 1 && key != INTENSITY) || (ft_atof(light->value) < 0
-			|| ft_atof(light->value) > 1))
+		if (i == 1 && key != INTENSITY)
 			return (0);
 		i++;
 		light = light->next;

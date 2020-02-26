@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 23:22:51 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 17:01:33 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define FAR			1000000
 # define MIN_D			1e-2
 # define GREY			0x444444
+# define BLACK			0x000000
 # define WHITE			16777216
 # define PERCENTAGE		0.19
 
@@ -298,7 +299,7 @@ int					sphere_input(t_block_list *sphere, int size);
 int					cylinder_input(t_block_list *cylinder, int size);
 int					plane_input(t_block_list *plane, int size);
 int					cone_input(t_block_list *cone, int size);
-void				ft_memdel_2d(void **ap);
+void				ft_memdel_2d(char **ap);
 int					array_len(char **array);
 int					check_light_input(char *vec);
 

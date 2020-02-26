@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:00:45 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 23:06:57 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 13:25:06 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		sphere_input(t_block_list *sphere, int size)
 		if (key == NAME && !check_univalue(sphere->value, 0))
 			return (0);
 		if (key == CENTER && !check_vec_input(sphere->value))
+			return (0);
+		if (key == VEC_DIR && !check_vec_input(sphere->value))
 			return (0);
 		if (key == RADIUS && !check_univalue(sphere->value, 0))
 			return (0);
@@ -119,5 +121,5 @@ int		cone_input(t_block_list *cone, int size)
 		size--;
 		cone = cone->next;
 	}
-	return (1);
+	return (!size);
 }

@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 20:28:39 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:04:56 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 13:46:42 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		draw(t_mlx *mlx, t_camera c, t_list *objs, t_list *l)
 			obj = find_closest_t(c, objs, index, &ray);
 			if (obj == NULL)
 			{
-				ft_mlx_pixel_put(mlx, index.i, index.j, GREY);
+				ft_mlx_pixel_put(mlx, index.i, index.j, BLACK);
 				continue ;
 			}
 			obj->k = shadows(&ray, objs, l, obj);

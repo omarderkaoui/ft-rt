@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+         #
+#    By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/02 20:53:05 by ikrkharb          #+#    #+#              #
-#    Updated: 2020/02/25 15:22:09 by oderkaou         ###   ########.fr        #
+#    Updated: 2020/02/26 12:08:56 by ikrkharb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRCS = 	srcs/ray_gen.c\
 		srcs/parsing.c\
 		srcs/rtv1.c\
 		srcs/vectors_ops.c\
-		DEBUG/debug.c\
 		srcs/objects.c\
 		srcs/intersection.c\
 		srcs/utils.c \

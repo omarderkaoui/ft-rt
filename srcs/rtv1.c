@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:20:30 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 23:21:35 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 17:42:07 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void		free_objects(void)
 	while (g_env.scene.objects)
 	{
 		tmp = g_env.scene.objects->next;
+		ft_memdel((void **)(&g_env.scene.objects->content));
 		ft_memdel((void **)(&g_env.scene.objects));
 		g_env.scene.objects = tmp;
 	}
@@ -31,6 +32,7 @@ void		free_lights(void)
 	while (g_env.scene.lights)
 	{
 		tmp = g_env.scene.lights->next;
+		ft_memdel((void **)(&g_env.scene.lights->content));
 		ft_memdel((void **)(&g_env.scene.lights));
 		g_env.scene.lights = tmp;
 	}

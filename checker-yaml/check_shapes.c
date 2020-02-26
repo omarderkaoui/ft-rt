@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 19:05:27 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 21:58:09 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 12:34:16 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		plane_keys(t_block_list *plane, int size)
 			return (0);
 		if (size == 2 && (key != ROT))
 			return (0);
-		if (size == 1 && (key != ROT))
+		if (size == 1 && (key != TRANS))
 			return (0);
 		size--;
 		plane = plane->next;

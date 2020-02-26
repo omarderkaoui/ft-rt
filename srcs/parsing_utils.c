@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 17:56:40 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:26:21 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 13:19:12 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int		find_camera_key(char *key)
 		return (LOOK_AT);
 	if (!ft_strcmp(key, "fov"))
 		return (FOV);
-	if (!ft_strcmp(key, "dist"))
-		return (DIST);
 	return (-1);
 }
 
