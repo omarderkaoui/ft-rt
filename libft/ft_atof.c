@@ -6,19 +6,19 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 01:48:02 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/21 19:51:21 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:42:56 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-float ft_atof(char *str)
+float	ft_atof(char *str)
 {
-	float 	nbr;
-	float 	r;
-	int 	i;
-	int 	l;
-	
+	float	nbr;
+	float	r;
+	int		i;
+	int		l;
+
 	i = 0;
 	l = 1;
 	nbr = (float)atoi(str);

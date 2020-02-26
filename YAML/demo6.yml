@@ -1,6 +1,6 @@
 camera:
     - eye:
-    0 0 200
+    0 0 100
     - look_at:
     0 0 0
     - fov:
@@ -8,7 +8,7 @@ camera:
 
 light:
     - origin:
-    50 50 0
+    0 -20 0
     - intensity:
     0.8
 
@@ -16,9 +16,9 @@ object:
     - name:
     sphere
     - center:
-    0 0 0
+    0 0 1
     - radius:
-    15
+    10
     - lights_coeffs:
     1 1 60
     - color:
@@ -97,4 +97,3 @@ object:
     on -35 0 0
     - trans:
     off 0 0 0
-

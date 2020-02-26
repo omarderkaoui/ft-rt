@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 20:54:36 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 17:02:59 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 18:01:42 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ t_vector		char_to_vec(char *str)
 	tmp = ft_strtrim(str);
 	values = ft_strsplit(tmp, ' ');
 	vector = (t_vector){0.0, 0.0, 0.0};
-	vector.x = ft_atof(values[0]);
-	vector.y = ft_atof(values[1]);
-	vector.z = ft_atof(values[2]);
+	if (array_len(values) == 3)
+	{
+		vector.x = ft_atof(values[0]);
+		vector.y = ft_atof(values[1]);
+		vector.z = ft_atof(values[2]);
+	}
 	ft_memdel_2d(values);
 	ft_memdel((void **)&tmp);
 	return (vector);

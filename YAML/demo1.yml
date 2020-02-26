@@ -8,7 +8,7 @@ camera:
 
 light:
     - origin:
-    80 100 200
+    0 100 0
     - intensity:
     0.5
 
@@ -18,11 +18,27 @@ object:
     - center:
     0 0 0
     - radius:
-    60
+    15
     - lights_coeffs:
     1 1 60
     - color:
     16711680
+    - rot:
+    off 0 0 0
+    - trans:
+    off 0 0 0
+
+object:
+    - name:
+    plane
+    - center:
+    0 0 0
+    - vec_dir:
+    0 0 1
+    - lights_coeffs:
+    1 1 60
+    - color:
+    16711935
     - rot:
     off 0 0 0
     - trans:
