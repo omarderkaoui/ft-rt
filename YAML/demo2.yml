@@ -17,10 +17,7 @@ object:
 cylinder
 - center:
 0 0 0
-- vec_dir:
-0 1 0
-- radius:
-40
+
 - lights_coeffs:
 1 1 60
 - color:

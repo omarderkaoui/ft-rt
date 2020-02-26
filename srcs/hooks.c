@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:26:23 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/18 18:04:03 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:33:28 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	key_press(int keycode, void *param)
 	if (keycode == 53)
 	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+		free_data();
 		exit(0);
 	}
 	return (0);
