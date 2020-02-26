@@ -1,0 +1,120 @@
+camera:
+  - eye:
+  0 0 -40
+  - look_at:
+  0 0 0
+  - fov:
+  100.0
+
+light:
+  - origin:
+  -100 -100 0
+  - intensity:
+  1
+
+  light:
+  - origin:
+  100 -100 0
+  - intensity:
+  1
+
+  light:
+  - origin:
+  100 100 0
+  - intensity:
+  1
+
+  light:
+  - origin:
+  -100 100 0
+  - intensity:
+  1
+
+
+  light:
+  - origin:
+  0 0 -100
+  - intensity:
+  1
+
+  object:
+  - name:
+  cylinder
+  - center:
+  0 0 0
+  - vec_dir:
+  0 1 0
+  - radius:
+  3
+  - lights_coeffs:
+   1 1 60
+  - color:
+  2656445
+  - rot:
+	off 0 0 -45
+  - trans:
+	off 3 0 0
+
+  object:
+  - name:
+  sphere
+  - center:
+  -10 -10 0
+  - radius:
+  5
+  - lights_coeffs:
+   1 1 50
+  - color:
+  16776960
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0
+
+    object:
+  - name:
+  sphere
+  - center:
+  30 -30  0
+  - radius:
+  5
+  - lights_coeffs:
+   1 1 50
+  - color:
+  255
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0
+
+    object:
+  - name:
+  sphere
+  - center:
+  -10 10 0
+  - radius:
+  5
+  - lights_coeffs:
+   1 1 50
+  - color:
+  16776960
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0
+
+    object:
+  - name:
+  sphere
+  - center:
+  10 10 0
+  - radius:
+  5
+  - lights_coeffs:
+   1 1 50
+  - color:
+  5456255
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0

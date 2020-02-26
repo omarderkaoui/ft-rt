@@ -6,21 +6,11 @@
 /*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:26:23 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 20:46:06 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:48:47 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rtv1.h"
-
-int	mouse_press(int button, int x, int y, void *param)
-{
-	t_mlx *mlx;
-
-	mlx = (t_mlx *)param;
-	if (button == 1)
-		ft_mlx_pixel_put(mlx, x, y, 0xFFF2F2);
-	return (0);
-}
 
 int	key_press(int keycode, void *param)
 {

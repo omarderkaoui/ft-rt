@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transform.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 19:09:58 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 17:33:55 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:03:41 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ t_object	*rotate_axis(t_object *object)
 	object->vec_dir = vec_norm(rotate_z_axis(
 				rotate_y_axis(rotate_x_axis(object->vec_dir,
 				rot.alpha_x), rot.alpha_y), rot.alpha_z));
-	object->center = rotate_z_axis(object->center, rot.alpha_z);
+	object->center = rotate_z_axis(
+				rotate_y_axis(rotate_x_axis(object->center,
+				rot.alpha_x), rot.alpha_y), rot.alpha_z);
 	return (object);
 }
 
-void		rotate(t_list **objects)
+t_list		*rotate(t_list *objects)
 {
 	t_list		*tmp;
 	t_object	*object;
 
-	tmp = *objects;
+	tmp = objects;
 	while (tmp)
 	{
 		object = tmp->content;
@@ -38,6 +40,7 @@ void		rotate(t_list **objects)
 		tmp->content = object;
 		tmp = tmp->next;
 	}
+	return (objects);
 }
 
 t_list		*translate(t_list *objects)

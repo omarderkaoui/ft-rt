@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 19:40:41 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 17:35:39 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:04:27 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		fill(t_parser *p, t_mlx *mlx)
 	scene = fill_scene(p->blocks);
 	g_env.scene = scene;
 	scene.objects = translate(scene.objects);
-	rotate(&(scene.objects));
+	scene.objects = rotate(scene.objects);
 	create_actual_objs(mlx, scene.camera, scene.lights, scene.objects);
 	return (1);
 }

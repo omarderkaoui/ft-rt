@@ -1,0 +1,99 @@
+camera:
+    - eye:
+    0 0 100
+    - look_at:
+    0 0 0
+    - fov:
+    60
+
+light:
+    - origin:
+    0 -20 0
+    - intensity:
+    0.8
+
+object:
+    - name:
+    sphere
+    - center:
+    0 0 1
+    - radius:
+    10
+    - lights_coeffs:
+    1 1 60
+    - color:
+    16711680
+    - rot:
+    off 0 0 0
+    - trans:
+    off 0 0 0
+
+object:
+    - name:
+    plane
+    - center:
+    0 -10 0
+    - vec_dir:
+    0 1 0
+    - lights_coeffs:
+    1 1 60
+    - color:
+    16711935
+    - rot:
+    off 0 0 0
+    - trans:
+    off 0 0 0
+
+object:
+    - name:
+    cone
+    - center:
+    -20 20 0
+    - vec_dir:
+    0 1 0
+    - alpha:
+    20
+    - lights_coeffs:
+    1 1 60
+    - color:
+    117225
+    - rot:
+    on 30 0 0
+    - trans:
+    off 0 0 0
+
+object:
+    - name:
+    cone
+    - center:
+    -60 20 60
+    - vec_dir:
+    0 1 0
+    - alpha:
+    20
+    - lights_coeffs:
+    1 1 60
+    - color:
+    117225
+    - rot:
+    on 45 0 0
+    - trans:
+    off 0 0 0
+
+object:
+    - name:
+    cylinder
+    - center:
+    -40 0 0
+    - vec_dir:
+    0 1 0
+    - radius:
+    20
+    - lights_coeffs:
+    1 1 60
+    - color:
+    255
+    - rot:
+    on -35 0 0
+    - trans:
+    off 0 0 0

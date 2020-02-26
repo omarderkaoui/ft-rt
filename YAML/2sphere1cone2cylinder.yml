@@ -1,0 +1,69 @@
+camera:
+  - eye:
+  0 0 -20
+  - look_at:
+  0 0 0
+  - fov:
+  60.0
+
+light:
+  - origin:
+  100 0 0
+  - intensity:
+  1
+
+  light:
+  - origin:
+  -100 0 0
+  - intensity:
+  1
+
+ object:
+  - name:
+  cone
+  - center:
+  0 0 0
+  - vec_dir:
+  0 1 0
+  - alpha:
+  30
+  - lights_coeffs:
+   1 1 60
+  - color:
+   16711680
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0
+
+  object:
+  - name:
+  sphere
+  - center:
+  1 0 0
+  - radius:
+  2
+  - lights_coeffs:
+   1 1 50
+  - color:
+  16776960
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0
+
+    object:
+  - name:
+  sphere
+  - center:
+  -1 0 0
+  - radius:
+  2
+  - lights_coeffs:
+   1 1 50
+  - color:
+  255
+  - rot:
+	off 0 0 90
+  - trans:
+	off 3 0 0

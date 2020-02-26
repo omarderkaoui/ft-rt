@@ -6,7 +6,7 @@
 /*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 20:46:47 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:02:52 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -308,8 +308,8 @@ int					check_light_input(char *vec);
 ** Transformation of objects
 */
 
-void				rotate(t_list **objects);
 t_list				*translate(t_list *objects);
+t_list				*rotate(t_list *objects);
 t_vector			rotate_x_axis(t_vector vec_dir, float angle);
 t_vector			rotate_y_axis(t_vector vec_dir, float angle);
 t_vector			rotate_z_axis(t_vector vec_dir, float angle);

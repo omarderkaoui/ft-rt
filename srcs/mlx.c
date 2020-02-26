@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 17:10:44 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/18 17:56:05 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:49:03 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_draw(t_mlx *mlx)
 
 void	set_mlx_hooks(t_mlx *mlx)
 {
-	mlx_hook(mlx->win_ptr, 4, 0, mouse_press, &mlx);
 	mlx_hook(mlx->win_ptr, 2, 0, key_press, &mlx);
 	mlx_hook(mlx->win_ptr, 17, 0, close_win, &mlx);
 	mlx_loop(mlx->mlx_ptr);
