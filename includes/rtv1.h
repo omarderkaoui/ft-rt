@@ -6,7 +6,7 @@
 /*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 20:09:10 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:46:47 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,6 +277,7 @@ t_vector			char_to_vec(char *str);
 t_rot				char_to_rot(char *str);
 t_trans				char_to_trans(char *str);
 t_light_coeffs		char_to_coeffs(char *str);
+void				free_data(void);
 
 /*
 ** The checker functions
