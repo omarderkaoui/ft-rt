@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:26:23 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 20:33:28 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:38:57 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	close_win(void *param)
 
 	mlx = (t_mlx *)param;
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	free_data();
 	exit(0);
 	return (0);
 }
