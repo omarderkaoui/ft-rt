@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:29:55 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 20:25:41 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 19:43:09 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ t_camera			fill_camera_data(t_block *block)
 	{
 		key = find_camera_key(list->key);
 		if (key == EYE)
-			camera.eye = vec_sum(char_to_vec(list->value)
-			, (t_vector){0.1, 0.1, 0.1});
+			camera.eye = char_to_vec(list->value);
 		if (key == LOOK_AT)
 			camera.look_at = char_to_vec(list->value);
 		if (key == FOV)

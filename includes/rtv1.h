@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 17:01:33 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/26 20:09:10 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define FAR			1000000
 # define MIN_D			1e-2
 # define GREY			0x444444
-# define BLACK			0x000000
+# define BLACK			0x212121
 # define WHITE			16777216
 # define PERCENTAGE		0.19
 
