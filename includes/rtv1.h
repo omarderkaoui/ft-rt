@@ -6,7 +6,7 @@
 /*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/27 14:25:06 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/27 15:30:20 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,6 +245,7 @@ void				create_actual_objs(t_mlx *mlx, t_camera camera,
 									t_list *lights, t_list *objects);
 int					shadows(t_ray *ray, t_list *objects, t_list *lights,
 							t_object *obj);
+float				get_dist(t_vector eye, t_vector look_at);
 
 /*
 ** Object's intersections
@@ -319,4 +320,5 @@ t_vector			sphere_normal(t_object *obj, t_ray *ray);
 t_vector			cone_normal(t_object *obj, t_ray *ray);
 t_vector			cylinder_normal(t_object *obj, t_ray *ray);
 t_vector			get_normal(t_object *obj, t_ray *ray);
+
 #endif
