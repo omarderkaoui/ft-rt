@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+         #
+#    By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/02 20:53:05 by ikrkharb          #+#    #+#              #
-#    Updated: 2020/02/27 15:57:33 by oderkaou         ###   ########.fr        #
+#    Updated: 2020/02/27 18:08:40 by ikrkharb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,8 @@ OBJ = $(SRCS:.c=.o)
 all: lib $(NAME)
 
 lib:
-	@make -C libft > /dev/null
-	@make -C parser-yaml > /dev/null
+	@make -C libft
+	@make -C parser-yaml
 
 $(NAME): $(OBJ) $(INC)
 	@gcc $(FLAGS) -I usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework Appkit $(OBJ) $(LIBFT) $(LIBPS) -o $(NAME)

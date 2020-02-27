@@ -1,0 +1,51 @@
+camera :
+	- eye:
+	0 0 200
+	- look_at:
+	 0 0 0
+	- fov:
+	60
+
+light:
+	- origin:
+	0 70 0
+	- intensity:
+	1
+
+light:
+	- origin:
+	50 70 0
+	- intensity:
+	1
+
+object:
+	- name:
+	plane
+	- center:
+	0 -10 0
+	- vec_dir:
+	0 1 0
+	- lights_coeffs:
+	1 1 60
+	- color:
+	16711935
+	- rot:
+	off 0 0 0
+	- trans:
+	off 0 0 0
+
+object:
+	- name:
+	sphere
+	- center:
+	0 20 0
+	- radius:
+	20
+	- lights_coeffs:
+	1 1 60
+	- color:
+	4564555
+	- rot:
+	off 0 0 0
+	- trans:
+	off 0 0 0

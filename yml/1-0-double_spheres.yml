@@ -1,28 +1,22 @@
-camera:
+camera :
 	- eye:
 	0 0 100
 	- look_at:
-	0 0 0
+	 0 0 0
 	- fov:
 	60
 
 light:
 	- origin:
-	100 0 0
+	0 0 100
 	- intensity:
-	1
-
-light:
-	- origin:
-	-100 0 0
-	- intensity:
-	1
+	0.5
 
 object:
-	- name :
+	- name:
 	sphere
 	- center:
-	0 0 0
+	5 0 0
 	- radius:
 	10
 	- lights_coeffs:
@@ -32,20 +26,20 @@ object:
 	- rot:
 	off 0 0 0
 	- trans:
-	off 0 0 0
+	on 42 10 0
 
 object:
-	- name :
+	- name:
 	sphere
 	- center:
-	20 0 0
+	-20 0 0
 	- radius:
 	10
 	- lights_coeffs:
 	1 1 60
 	- color:
-	504060
+	181917
 	- rot:
 	off 0 0 0
 	- trans:
-	on 10 10 10
+	off 0 0 0

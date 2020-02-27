@@ -1,0 +1,29 @@
+camera :
+	- eye:
+	100 0 0
+	- look_at:
+	 10 0 0
+	- fov:
+	60
+
+light:
+	- origin:
+	100 0 0
+	- intensity:
+	0.5
+
+object:
+	- name:
+	plane
+	- center:
+	0 0 0
+	- vec_dir:
+	1 0 0
+	- lights_coeffs:
+	1 1 60
+	- color:
+	255
+	- rot:
+	off 0 0 0
+	- trans:
+	off 0 0 0

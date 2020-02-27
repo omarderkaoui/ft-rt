@@ -1,0 +1,31 @@
+camera :
+	- eye:
+	0 0 100
+	- look_at:
+	 0 0 0
+	- fov:
+	60
+
+light:
+	- origin:
+	0 0 100
+	- intensity:
+	0.5
+
+object:
+	- name:
+	cylinder
+	- center:
+	0 0 0
+	- vec_dir:
+	0 1 0
+	- radius:
+	5
+	- lights_coeffs:
+	1 1 60
+	- color:
+	255
+	- rot:
+	on 0 0 90
+	- trans:
+	off 0 0 0
