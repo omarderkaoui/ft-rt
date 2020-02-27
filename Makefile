@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+         #
+#    By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/02 20:53:05 by ikrkharb          #+#    #+#              #
-#    Updated: 2020/02/27 15:31:52 by ikrkharb         ###   ########.fr        #
+#    Updated: 2020/02/27 15:57:33 by oderkaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,20 +46,28 @@ LIBPS = parser-yaml/libparser.a
 
 INC = includes/rtv1.h
 
-all: $(NAME)
+OBJ = $(SRCS:.c=.o)
 
-$(NAME): $(SRCS) $(INC)
+all: lib $(NAME)
+
+lib:
 	@make -C libft > /dev/null
 	@make -C parser-yaml > /dev/null
-	@gcc $(FLAGS) -I usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework Appkit $(SRCS) $(LIBFT) $(LIBPS) -o $(NAME)
+
+$(NAME): $(OBJ) $(INC)
+	@gcc $(FLAGS) -I usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework Appkit $(OBJ) $(LIBFT) $(LIBPS) -o $(NAME)
 	@echo "\033[92mDone\033[0m"
+
+%.o: %.c $(INC)
+	gcc $(FLAGS) -c $< -o $@
 
 clean:
 	@make clean -C libft
 	@make clean -C parser-yaml
+	@/bin/rm -rf $(OBJ) > /dev/null
 	@echo "\033[92mCleaning done\033[0m"
 
-fclean:
+fclean: clean
 	@make fclean -C libft
 	@make fclean -C parser-yaml
 	@/bin/rm -rf $(NAME)
