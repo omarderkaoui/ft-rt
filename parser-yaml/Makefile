@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+         #
+#    By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/04 21:43:33 by ikrkharb          #+#    #+#              #
-#    Updated: 2020/02/27 15:31:59 by ikrkharb         ###   ########.fr        #
+#    Updated: 2020/02/27 16:09:36 by oderkaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,11 @@ OBJ = $(SRC:.c=.o)
 INC = parser.h
 
 $(NAME): $(OBJ) $(INC)
-	@gcc $(FLAGS) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+
+%.o: %.c $(INC)
+	gcc $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 

@@ -1,6 +1,6 @@
 camera:
     - eye:
-    0 0 100
+    0 20 100
     - look_at:
     0 0 0
     - fov:
@@ -8,9 +8,9 @@ camera:
 
 light:
     - origin:
-    0 -20 0
+    0 0 100
     - intensity:
-    0.8
+    1
 
 object:
     - name:
