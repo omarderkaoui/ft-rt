@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   objects.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 20:28:39 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 13:46:42 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/27 13:21:27 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void		draw(t_mlx *mlx, t_camera c, t_list *objs, t_list *l)
 	t_index		index;
 	t_object	*obj;
 	t_ray		ray;
+	int			k;
 
+	k = 0;
 	index.i = -1;
 	while (++index.i < WIDTH)
 	{
@@ -71,9 +73,9 @@ void		draw(t_mlx *mlx, t_camera c, t_list *objs, t_list *l)
 				ft_mlx_pixel_put(mlx, index.i, index.j, BLACK);
 				continue ;
 			}
-			obj->k = shadows(&ray, objs, l, obj);
+			k = shadows(&ray, objs, l, obj);
 			ft_mlx_pixel_put(mlx, index.i, index.j,
-							phong_model(obj, &ray, l, obj->k));
+			phong_model(obj, &ray, l, k));
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);

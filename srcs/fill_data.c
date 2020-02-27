@@ -6,7 +6,7 @@
 /*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:29:55 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 19:43:09 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/27 04:05:26 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_camera			fill_camera_data(t_block *block)
 		if (key == EYE)
 			camera.eye = char_to_vec(list->value);
 		if (key == LOOK_AT)
-			camera.look_at = char_to_vec(list->value);
+			camera.look_at = vec_sum(char_to_vec(list->value)
+							, (t_vector){MIN_D, MIN_D, MIN_D});
 		if (key == FOV)
 			camera.fov = ft_atof(list->value);
 		list = list->next;

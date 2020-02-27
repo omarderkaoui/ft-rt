@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shadow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 14:15:01 by oderkaou          #+#    #+#             */
-/*   Updated: 2020/02/25 19:48:10 by ikrkharb         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:03:40 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,22 @@ void		init_shadow_values(t_shadow_ray *shadow, t_ray *ray, double t)
 
 int			shadows(t_ray *ray, t_list *objects, t_list *lights, t_object *obj)
 {
-	t_shadow_ray v;
+	t_shadow_ray	v;
+	float			dist_light;
 
 	init_shadow_values(&v, ray, obj->t);
+	dist_light = 0;
 	while (lights)
 	{
 		v.sh.dir = vec_norm(vec_sub(((t_light *)lights->content)->origin, v.p));
 		v.n = get_normal(obj, ray);
 		v.sh.origin = vec_sum(v.p, vec_kscale(MIN_D, v.n));
 		v.tmp = objects;
+		dist_light = get_dist(((t_light *)lights->content)->origin, v.sh.origin);
 		while (v.tmp)
 		{
 			fill_inter_shadow(v.tmp, v.sh);
-			if (((t_object*)v.tmp->content)->tsh != FAR)
+			if (((t_object*)v.tmp->content)->tsh != FAR && ((t_object*)v.tmp->content)->tsh < dist_light)
 			{
 				v.k++;
 				break ;

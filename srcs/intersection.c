@@ -6,7 +6,7 @@
 /*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 23:00:09 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/25 14:30:36 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/27 12:41:17 by oderkaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ double	plane(t_ray *ray, t_object *obj)
 		return (FAR);
 	t = vec_dot(vec_sub(obj->center, ray->origin), obj->vec_dir)
 	/ vec_dot(obj->vec_dir, ray->dir);
-	if (t > 0 && t < 100000)
+	if (t > 0)
 		return (t);
 	return (FAR);
 }
