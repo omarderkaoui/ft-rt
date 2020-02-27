@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:17:06 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/26 21:02:52 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:25:06 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,7 @@ typedef	struct		s_shadow_ray
 	t_vector		n;
 	int				k;
 	int				nb_light;
+	double			dist;
 }					t_shadow_ray;
 
 t_env g_env;

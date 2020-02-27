@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersection.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oderkaou <oderkaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ikrkharb <ikrkharb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 23:00:09 by ikrkharb          #+#    #+#             */
-/*   Updated: 2020/02/27 12:41:17 by oderkaou         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:25:36 by ikrkharb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 double	solution(float a, float b, float c)
 {
+	double	discriminant;
 	double	t1;
 	double	t2;
 
-	if (((b * b) - (4 * a * c)) < 0)
+	discriminant = ((b * b) - (4 * a * c));
+	if (discriminant < 0)
 		return (FAR);
-	if ((b * b - 4 * a * c) == 0)
+	if (discriminant == 0)
 		return (-b / 2 * a);
-	t1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
-	t2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+	t1 = (-b + sqrt(discriminant)) / (2 * a);
+	t2 = (-b - sqrt(discriminant)) / (2 * a);
 	if (t1 < t2 && t1 > 0 && t1 < 100000)
 		return (t1);
 	if (t2 < t1 && t2 > 0 && t2 < 100000)
